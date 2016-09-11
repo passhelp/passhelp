@@ -1,3 +1,1 @@
-declare var require: {
-  <T>(path: string): T;
-};
+declare module 'raw!*';

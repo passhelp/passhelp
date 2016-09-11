@@ -1,12 +1,12 @@
 import * as random from '../random';
 import * as character from './character';
+import * as rawWords from 'raw!./words.txt';
 
 let _words = [];
 function getWords() {
   if (_words.length === 0) {
     // webpack will take care of this
-    const raw = require<string>('raw!./words.txt');
-    _words = raw.split(',');
+    _words = (rawWords as string).split(',');
   }
   return _words;
 }

@@ -1,0 +1,9 @@
+body {
+  background-color: #eeeeee;
+}
+
+#output {
+  font-family: monospace;
+  font-size: 2em;
+  width: 50%;
+}

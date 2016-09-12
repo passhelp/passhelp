@@ -12,7 +12,7 @@ const exclude = excludeSource.split('\n');
 
 // when combined with 3esl from 12dicts, this should yield ~10K words
 // excludes hyphenations, multi-word phrases, abbreviations, acronyms, proper nouns
-const valid = /^[a-z]{5,8}$/;
+const valid = /^[a-z]{4,8}$/;
 
 const words = [];
 source.split('\n').forEach(line => {

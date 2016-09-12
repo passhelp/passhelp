@@ -1,18 +1,16 @@
 import * as random from '../random';
 import * as character from './character';
-import * as rawWords from 'raw!./words.txt';
+import * as rawWords from './words.txt';
 
 let _words = [];
 function getWords() {
   if (_words.length === 0) {
-    // webpack will take care of this
-    _words = (rawWords as string).split(',');
+    _words = rawWords.split(',');
   }
   return _words;
 }
 
-// XXX: better name than appease...
-export function generate(numWords, appease) {
+export function generate(numWords, specials = false) {
   // for sanity, require 3 words so that there are at least two separator characters.
   // this means we can guarantee at least 1 symbol and 1 number, if asked for
   if (numWords < 3) {
@@ -23,7 +21,7 @@ export function generate(numWords, appease) {
   const words = getWords();
 
   let separators = '';
-  if (appease) {
+  if (specials) {
     separators = character.generate(numWords - 1, character.alphabets.nonalpha, true);
   } else {
     separators = ' '.repeat(numWords - 1);
@@ -34,7 +32,7 @@ export function generate(numWords, appease) {
   nums.forEach((n, i) => {
     let w = words[n];
 
-    if (i === 0 && appease) {
+    if (i === 0 && specials) {
       w = w.charAt(0).toUpperCase() + w.slice(1);
     }
 

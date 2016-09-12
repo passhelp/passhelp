@@ -8,12 +8,21 @@
 
 <body>
 
-  <button class="generator" data-type="character" data-alphabet="full">strongest</button>
-  <button class="generator" data-type="character" data-alphabet="alphanumeric_friendly">alphanumeric</button>
-  <button class="generator" data-type="phrase">phrase</button>
+<div class="buttons">
+  <button class="generator" data-type="character" data-alphabet="full" data-length="8,12,16,20">strongest</button>
+  <button class="generator" data-type="character" data-alphabet="full_friendly" data-length="8,12,16,20">strong</button>
+  <button class="generator" data-type="character" data-alphabet="alphanumeric_friendly" data-length="8,12,16,20">alphanumeric</button>
+  <button class="generator" data-type="character" data-alphabet="hex" data-length="8,16,32,64">hex</button>
+  <button class="generator" data-type="character" data-alphabet="numeric" data-length="4,6,8">pin</button>
+  <button class="generator" data-type="phrase" data-length="3,4,5,6,7,8">phrase</button>
+  <button class="generator" data-type="phrase" data-length="3,4,5,6,7,8" data-specials="true">phrase <small>(with symbols)</small></button>
+</div>
 
-  <br/>
-  <input type="text" id="output" />
+  <div class="description">informative description about the password type moused-over or selected</div>
+
+  <input type="text" id="output" value="generated password/phrase" />
+
+  <div class="length-buttons"></div>
 
   <script type="text/javascript">{{{script}}}</script>
 </body>

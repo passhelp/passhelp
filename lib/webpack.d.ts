@@ -1,1 +1,1 @@
-declare module 'raw!*';
+declare module '*.txt';

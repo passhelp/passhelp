@@ -10,21 +10,21 @@ class Alphabet {
   _sets: Array<string>;
   _exclude: RegExp;
 
-  constructor(sets, exclude = null) {
+  constructor(sets: Array<string>, exclude: RegExp = null) {
     this._sets = sets;
     this._exclude = exclude;
   }
-  get characters() {
+  get characters(): string {
     let chars = this._sets.join('');
     if (this._exclude) {
       chars = chars.replace(this._exclude, '');
     }
     return chars;
   }
-  get sets() {
+  get sets(): Array<string> {
     return this._sets;
   }
-  findCharacter(c) {
+  findCharacter(c: string): number {
     for (let i = 0; i < this._sets.length; i++) {
       if (this._sets[i].includes(c)) {
         return i;
@@ -44,7 +44,7 @@ export const alphabets = {
   hex: new Alphabet([NUMBERS + 'abcdef']),
 };
 
-export function generate(length, alphabet, exhaustive = true) {
+export function generate(length: number, alphabet: Alphabet, exhaustive: boolean = true): string {
   const chars = alphabet.characters;
   const used = alphabet.sets.map(() => false);
 
@@ -54,12 +54,11 @@ export function generate(length, alphabet, exhaustive = true) {
   }
 
   // the (simple) magic
-  // XXX: prefer string concatenation (optimization)
-  const passChars = [];
+  let pass = '';
   const nums = random.randomNumbers(length, chars.length);
   for (let n of nums) {
     const c = chars[n];
-    passChars.push(c);
+    pass += c;
 
     // bookkeeping
     if (exhaustive) {
@@ -76,6 +75,6 @@ export function generate(length, alphabet, exhaustive = true) {
     }
   }
 
-  return passChars.join('');
+  return pass;
 }
 

@@ -1,7 +1,7 @@
 
 const UPPER = Math.pow(2, 16);
 
-export function randomNumbers(count, bound): Array<number> {
+export function randomNumbers(count: number, bound: number): Array<number> {
   if (bound >= UPPER) {
     throw new Error('cannot safely generate numbers above 16-bits');
   }

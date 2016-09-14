@@ -8,21 +8,39 @@
 
 <body>
 
-<div class="buttons">
-  <button class="generator" data-type="character" data-alphabet="full" data-length="8,12,16,20">strongest</button>
-  <button class="generator" data-type="character" data-alphabet="full_friendly" data-length="8,12,16,20">strong</button>
-  <button class="generator" data-type="character" data-alphabet="alphanumeric_friendly" data-length="8,12,16,20">alphanumeric</button>
-  <button class="generator" data-type="character" data-alphabet="hex" data-length="8,16,32,64">hex</button>
-  <button class="generator" data-type="character" data-alphabet="numeric" data-length="4,6,8">pin</button>
-  <button class="generator" data-type="phrase" data-length="3,4,5,6,7,8">phrase</button>
-  <button class="generator" data-type="phrase" data-length="3,4,5,6,7,8" data-specials="true">phrase <small>(with symbols)</small></button>
-</div>
+  <div class="types">
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="strongest" data-type="character" data-alphabet="full" data-length="8,12,16,20" data-exhaustive="false"> strongest
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="strong" data-type="character" data-alphabet="full_friendly" data-length="8,12,16,20"> strong
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="alphanumeric" data-type="character" data-alphabet="alphanumeric_friendly" data-length="8,12,16,20"> alphanumeric
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="hex" data-type="character" data-alphabet="hex" data-length="8,16,32,64"> hex
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="pin" data-type="character" data-alphabet="numeric" data-length="4,6,8"> pin
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="phrase" data-type="phrase" data-length="3,4,5,6,7,8"> phrase
+    </label>
+    <label>
+      <input type="radio" name="type-radio" class="generator" id="phrase-symbols" data-type="phrase" data-length="3,4,5,6,7,8" data-specials="true"> phrase <small>(with symbols)</small>
+    </label>
+  </div>
 
-  <div class="description">informative description about the password type moused-over or selected</div>
+  <div id="description">informative description about the password type moused-over or selected</div>
+
+  <div id="length-picker">
+    <input type="range" id="length-range" step="1" />
+    <input type="number" id="length" />
+    <div id="length-presets"></div>
+  </div>
 
   <input type="text" id="output" value="generated password/phrase" />
-
-  <div class="length-buttons"></div>
 
   <script type="text/javascript">{{{script}}}</script>
 </body>

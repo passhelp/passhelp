@@ -1,8 +1,16 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const prod = process.env.NODE_ENV === 'production';
 
-const plugins = [];
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: 'web/template.ejs',
+    inject: false,
+    cache: false,
+  }),
+];
+
 if (prod) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}));
 }
@@ -14,7 +22,7 @@ module.exports = {
     filename: 'app.bundle.js',
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.txt'],
+    extensions: ['', '.ts', '.js', '.txt', '.css'],
   },
   module: {
     loaders: [
@@ -25,7 +33,11 @@ module.exports = {
       {
         test: /\.txt$/,
         loader: 'raw',
-      }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css',
+      },
     ],
   },
   plugins: plugins,

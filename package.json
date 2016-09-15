@@ -10,7 +10,8 @@
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",
   "devDependencies": {
-    "handlebars": "^4.0.5",
+    "css-loader": "^0.25.0",
+    "html-webpack-plugin": "^2.22.0",
     "jasmine": "^2.4.1",
     "raw-loader": "^0.5.1",
     "ts-loader": "^0.8.2",

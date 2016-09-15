@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>passhelp password generator</title>
-  <style type="text/css">{{{css}}}</style>
+  <title>the little password helper</title>
 </head>
 
 <body>
@@ -42,6 +41,6 @@
 
   <input type="text" id="output" value="generated password/phrase" />
 
-  <script type="text/javascript">{{{script}}}</script>
+  <script type="text/javascript"><%= compilation.assets['app.bundle.js'].source() %></script>
 </body>
 </html>

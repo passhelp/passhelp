@@ -1,3 +1,4 @@
+import './style.css';
 import * as character from '../lib/generators/character';
 import * as phrase from '../lib/generators/phrase';
 

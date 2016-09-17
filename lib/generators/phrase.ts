@@ -3,14 +3,14 @@ import * as character from './character';
 import * as rawWords from './words.txt';
 
 let _words = [];
-function getWords(): Array<string> {
+function getWords(): string[] {
   if (_words.length === 0) {
     _words = rawWords.split(',');
   }
   return _words;
 }
 
-export function generate(numWords, specials = false): string {
+export function generate(numWords: number, specials: boolean = false): string {
   // for sanity, require 3 words so that there are at least two separator characters.
   // this means we can guarantee at least 1 symbol and 1 number, if asked for
   if (numWords < 3) {

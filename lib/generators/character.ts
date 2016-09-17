@@ -7,10 +7,10 @@ const SYMBOLS = '!@#$%^&*()`~-_=+[]{};:\'"<>,./?\\|';
 const LOOKALIKES = /[Il1O0\|]/g;
 
 class Alphabet {
-  private _sets: Array<string>;
+  private _sets: string[];
   private _exclude: RegExp;
 
-  constructor(sets: Array<string>, exclude: RegExp = null) {
+  constructor(sets: string[], exclude: RegExp = null) {
     this._sets = sets;
     this._exclude = exclude;
   }
@@ -21,7 +21,7 @@ class Alphabet {
     }
     return chars;
   }
-  get sets(): Array<string> {
+  get sets(): string[] {
     return this._sets;
   }
   findCharacter(c: string): number {

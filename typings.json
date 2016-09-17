@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
+    "mockery": "registry:dt/mockery#1.4.0+20160316155526",
     "node": "registry:dt/node#6.0.0+20160915134512"
   }
 }

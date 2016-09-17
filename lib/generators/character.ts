@@ -7,8 +7,8 @@ const SYMBOLS = '!@#$%^&*()`~-_=+[]{};:\'"<>,./?\\|';
 const LOOKALIKES = /[Il1O0\|]/g;
 
 class Alphabet {
-  _sets: Array<string>;
-  _exclude: RegExp;
+  private _sets: Array<string>;
+  private _exclude: RegExp;
 
   constructor(sets: Array<string>, exclude: RegExp = null) {
     this._sets = sets;

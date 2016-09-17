@@ -27,5 +27,7 @@ source.split('\n').forEach(line => {
 // separate with a comma instead of a newline:
 // when bundled, webpack will write '\n' for newlines (as it should).
 // but why waste the space?
+process.stdout.write('export default \'')
 process.stdout.write(words.join(','));
+process.stdout.write('\';\n')
 process.stderr.write(`generated ${words.length} words\n`);

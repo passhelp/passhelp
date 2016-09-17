@@ -1,6 +1,6 @@
 import * as random from '../random';
 import * as character from './character';
-import * as rawWords from './words.txt';
+import rawWords from './words';
 
 let _words = [];
 function getWords(): string[] {

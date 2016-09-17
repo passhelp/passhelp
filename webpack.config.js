@@ -31,10 +31,6 @@ module.exports = {
         loader: 'ts-loader',
       },
       {
-        test: /\.txt$/,
-        loader: 'raw',
-      },
-      {
         test: /\.css$/,
         loader: 'style!css',
       },

@@ -1,0 +1,8 @@
+{
+  "name": "passhelp-js-example",
+  "version": "1.0.0",
+  "description": "Example usage of passhelp",
+  "main": "index.js",
+  "author": "Jacob Peddicord <jacob@peddicord.net>",
+  "license": "MIT"
+}

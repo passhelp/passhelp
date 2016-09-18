@@ -2,7 +2,8 @@
   "name": "passhelp",
   "version": "0.0.1",
   "description": "Nonsense-free password generation routines",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build-web": "cd web && NODE_ENV=production webpack",
     "test": "tsc && jasmine 'lib/**/*.spec.js'"

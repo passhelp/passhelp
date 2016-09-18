@@ -8,3 +8,4 @@ src/**/*.map
 web/**/*.js
 web/**/*.map
 !webpack.config.js
+*.tgz

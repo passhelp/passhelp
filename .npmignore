@@ -1,0 +1,13 @@
+.vscode/
+examples/
+src/
+tools/
+typings/
+web/
+lib/**/*.spec.d.ts
+lib/**/*.spec.js
+/*.json
+.editorconfig
+.gitattributes
+.npmignore
+*.tgz

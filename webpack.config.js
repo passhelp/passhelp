@@ -1,13 +1,22 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const prod = process.env.NODE_ENV === 'production';
 
 const plugins = [
+  new webpack.DefinePlugin({
+    // strip out node logic; ensures 'crypto' module doesn't get bundled
+    'typeof require': JSON.stringify('undefined'),
+  }),
+  new ExtractTextPlugin('style.css', {allChunks: true}),
   new HtmlWebpackPlugin({
     template: 'web/template.ejs',
     inject: false,
     cache: false,
+    minify: {
+      collapseWhitespace: true,
+    },
   }),
 ];
 
@@ -16,7 +25,9 @@ if (prod) {
 }
 
 module.exports = {
-  entry: './web/app.ts',
+  entry: {
+    app: './web/app.ts',
+  },
   output: {
     path: './build',
     filename: 'app.bundle.js',
@@ -32,9 +43,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css',
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
       },
     ],
   },
   plugins: plugins,
+  devtool: prod ? undefined : 'cheap-module-eval-source-map',
 };

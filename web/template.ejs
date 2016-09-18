@@ -4,42 +4,66 @@
   <meta charset="UTF-8">
   <title>the little password helper</title>
 </head>
-
 <body>
 
-  <div class="types">
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="strongest" data-type="character" data-alphabet="full" data-length="8,12,16,20" data-exhaustive="false"> strongest
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="strong" data-type="character" data-alphabet="full_friendly" data-length="8,12,16,20"> strong
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="alphanumeric" data-type="character" data-alphabet="alphanumeric_friendly" data-length="8,12,16,20"> alphanumeric
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="hex" data-type="character" data-alphabet="hex" data-length="8,16,32,64"> hex
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="pin" data-type="character" data-alphabet="numeric" data-length="4,6,8"> pin
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="phrase" data-type="phrase" data-length="3,4,5,6,7,8"> phrase
-    </label>
-    <label>
-      <input type="radio" name="type-radio" class="generator" id="phrase-symbols" data-type="phrase" data-length="3,4,5,6,7,8" data-specials="true"> phrase <small>(with symbols)</small>
-    </label>
+  <div id="container">
+
+    <div id="settings">
+
+      <div id="types">
+        <label>
+          <input type="radio" name="type-radio" class="generator" id="phrase" data-type="phrase" data-length="3,4,5,6,7,8"> phrase
+        </label>
+        <label>
+          <input type="radio" name="type-radio" class="generator" id="phrase-symbols" data-type="phrase" data-length="3,4,5,6,7,8" data-specials="true"> phrase <small>(with symbols)</small>
+        </label>
+        <label>
+          <input type="radio" name="type-radio" class="generator" id="alphanumeric" data-type="character" data-alphabet="alphanumeric_friendly" data-length="8,12,16,20"> alphanumeric
+        </label>
+        <label>
+          <input type="radio" name="type-radio" class="generator" id="strong" data-type="character" data-alphabet="full_friendly" data-length="8,12,16,20"> strong
+        </label>
+        <label>
+          <input type="radio" name="type-radio" class="generator" id="strongest" data-type="character" data-alphabet="full" data-length="8,12,16,20" data-exhaustive="false"> strongest
+        </label>
+      </div>
+
+      <div id="details">
+        <div id="description">
+          <span class="type" style="display: block">
+            Select a type of password to begin.
+          </span>
+          <span class="type" id="desc_phrase">
+            Instead of random characters, consider using a few random words -- it's much easier to remember. Use for any password you want to commit to memory. <a href="https://xkcd.com/936/">It's more secure than you think.</a>
+          </span>
+          <span class="type" id="desc_phrase-symbols">
+            Just like the other phrase option, but using symbols and numbers as separators. Use this when you still need to fulfill password requirements.
+          </span>
+          <span class="type" id="desc_alphanumeric">
+            Just letters and numbers. Use on websites that don't accept anything else.
+          </span>
+          <span class="type" id="desc_strong">
+            Letters, numbers, and symbols. Characters that look similar omitted. Useful if you're reading and typing this a lot.
+          </span>
+          <span class="type" id="desc_strongest">
+            All character classes, no usability enhancements, just a pure random password. Use if you're planning on storing this in a password manager.
+          </span>
+        </div>
+
+        <div id="length-picker">
+          Pick your password length:<br/>
+          <input type="range" id="length-range" step="1" />
+          <input type="number" id="length" />
+          <div id="length-presets"><button>?</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="output-area">
+      <input type="text" id="output" value="generated password/phrase" />
+      <button id="regenerate">&#x21bb;</button>
+    </div>
   </div>
-
-  <div id="description">informative description about the password type moused-over or selected</div>
-
-  <div id="length-picker">
-    <input type="range" id="length-range" step="1" />
-    <input type="number" id="length" />
-    <div id="length-presets"></div>
-  </div>
-
-  <input type="text" id="output" value="generated password/phrase" />
 
   <script type="text/javascript"><%= compilation.assets['app.bundle.js'].source() %></script>
 </body>

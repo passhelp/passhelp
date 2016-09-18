@@ -4,7 +4,7 @@
   "description": "Nonsense-free password generation routines",
   "main": "index.js",
   "scripts": {
-    "build-web": "webpack && node tools/buildpage.js",
+    "build-web": "NODE_ENV=production webpack",
     "test": "tsc && jasmine 'build/lib/**/*.spec.js'"
   },
   "author": "Jacob Peddicord <jacob@peddicord.net>",

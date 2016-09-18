@@ -1,17 +1,111 @@
+*:focus {
+  outline: none;
+}
+
 body {
+  background-color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #eeeeee;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#container {
+  max-width: 700px;
+  margin: 100px auto;
+}
+
+#settings {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#types {
+  flex-basis: 250px;
+  flex-shrink: 0;
+}
+
+#details {
+  display: flex;
+  padding-left: 0.5em;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+
+#types > label {
+  display: block;
+  padding: 0.5em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#types > label:hover {
+  background-color: #ddd;
+}
+
+#description {
+  flex-grow: 1;
+  font-size: 1.1em;
+}
+
+#description > .type {
+  display: none;
+}
+
+#length-picker {
+  padding: 0.5em;
+  visibility: hidden;
+}
+
+#length-range {
+  width: 100px;
+}
+
+#length {
+  width: 2em;
+  padding: 0.2em;
+  font-size: 1.2em;
+}
+
+#length-presets {
+  margin-top: 0.3em;
+}
+
+#length-presets > button {
+  background-color: #ccc;
+  border: 0;
+  padding: 0.5em 0.8em;
+  margin-right: 0.3em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#output-area {
+  display: flex;
+  margin-top: 0.8em;
+  flex-direction: row;
 }
 
 #output {
-  font-family: monospace;
-  font-size: 2em;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.5em;
+  flex-grow: 1;
+  font-size: 1.5em;
+  border: 3px solid black;
+  padding: 0.3em;
+  text-align: center;
 }
 
-
+#regenerate {
+  flex-grow: 0;
+  margin-left: 0.5em;
+  border: none;
+  padding: 0 0.6em;
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: pointer;
+}

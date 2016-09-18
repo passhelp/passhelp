@@ -3,6 +3,9 @@ import * as character from '../lib/generators/character';
 import * as phrase from '../lib/generators/phrase';
 
 const outputField = document.getElementById('output') as HTMLInputElement;
+outputField.addEventListener('focus', copyOutput);
+const regenerateButton = document.getElementById('regenerate');
+regenerateButton.addEventListener('click', generate);
 
 const typeOptions = document.querySelectorAll('.generator');
 for (let i = 0; i < typeOptions.length; i++) {
@@ -16,7 +19,7 @@ const lengthSlider = document.getElementById('length-range') as HTMLInputElement
 lengthField.addEventListener('change', e => {
   setLength(parseInt(lengthField.value));
 });
-lengthSlider.addEventListener('change', e => {
+lengthSlider.addEventListener('input', e => {
   setLength(parseInt(lengthSlider.value));
 });
 
@@ -47,6 +50,11 @@ function generate() {
   outputField.value = out;
 }
 
+function copyOutput(e: Event) {
+  outputField.select();
+  document.execCommand('copy');
+}
+
 /**
  * When a password type is selected, show more options and generate.
  */
@@ -54,8 +62,21 @@ function typeSelected(e: Event) {
   const radio = e.currentTarget as HTMLInputElement;
   const data = radio.dataset as any;
 
+  // show description
+  const descs = document.querySelectorAll('#description > .type');
+  for (let i = 0; i < descs.length; i++) {
+    const txt = descs.item(i) as HTMLElement;
+    txt.style.display = 'none';
+  }
+  const desc = document.getElementById(`desc_${radio.id}`);
+  desc.style.display = 'block';
+
+  // show length picker
   const lengths = data.length.split(',').map(x => parseInt(x));
   renderLengthOptions(lengths);
+  document.getElementById('length-picker').style.visibility = 'visible';
+
+  // eagerly generate a password
   generate();
 }
 

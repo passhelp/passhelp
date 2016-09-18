@@ -6,7 +6,7 @@ const NUMBERS = '1234567890';
 const SYMBOLS = '!@#$%^&*()`~-_=+[]{};:\'"<>,./?\\|';
 const LOOKALIKES = /[Il1O0\|]/g;
 
-class Alphabet {
+export class Alphabet {
   private _sets: string[];
   private _exclude: RegExp;
 

@@ -2,5 +2,9 @@
 node_modules/
 typings/
 build/
-lib/**/*.js
-lib/**/*.map
+lib/
+src/**/*.js
+src/**/*.map
+web/**/*.js
+web/**/*.map
+!webpack.config.js

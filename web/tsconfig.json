@@ -5,14 +5,10 @@
       "es2015",
       "dom"
     ],
-    "outDir": "lib",
-    "rootDir": "src",
-    "declaration": false,
-    "sourceMap": false,
+    "sourceMap": true,
     "noImplicitAny": false
   },
   "exclude": [
-    "node_modules",
-    "web"
+    "node_modules"
   ]
 }

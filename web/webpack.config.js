@@ -11,7 +11,7 @@ const plugins = [
   }),
   new ExtractTextPlugin('style.css', {allChunks: true}),
   new HtmlWebpackPlugin({
-    template: 'web/template.ejs',
+    template: './template.ejs',
     inject: false,
     cache: false,
     minify: {
@@ -26,7 +26,7 @@ if (prod) {
 
 module.exports = {
   entry: {
-    app: './web/app.ts',
+    app: './app.ts',
   },
   output: {
     path: './build',

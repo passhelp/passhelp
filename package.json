@@ -4,8 +4,8 @@
   "description": "Nonsense-free password generation routines",
   "main": "index.js",
   "scripts": {
-    "build-web": "NODE_ENV=production webpack",
-    "test": "tsc && jasmine 'build/lib/**/*.spec.js'"
+    "build-web": "cd web && NODE_ENV=production webpack",
+    "test": "tsc && jasmine 'lib/**/*.spec.js'"
   },
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",

@@ -4,8 +4,8 @@
  */
 
 import './style.css';
-import * as character from '../lib/generators/character';
-import * as phrase from '../lib/generators/phrase';
+import * as character from '../src/generators/character';
+import * as phrase from '../src/generators/phrase';
 
 const outputField = document.getElementById('output') as HTMLInputElement;
 outputField.addEventListener('focus', copyOutput);

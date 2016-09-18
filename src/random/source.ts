@@ -1,4 +1,4 @@
-type RNGFunc = <T extends Uint8Array | Uint16Array | Uint32Array>(
+export type RNGFunc = <T extends Uint8Array | Uint16Array | Uint32Array>(
   arrayType: {new(length: number): T}, count: number
 ) => T;
 

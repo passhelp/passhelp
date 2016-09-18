@@ -2,7 +2,7 @@ import * as random from '../random';
 import * as character from './character';
 import rawWords from './words';
 
-let _words = [];
+let _words: string[] = [];
 function getWords(): string[] {
   if (_words.length === 0) {
     _words = rawWords.split(',');

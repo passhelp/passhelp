@@ -43,10 +43,10 @@ function generate() {
   // read the desired length
   const passLength = parseInt((document.getElementById('length') as HTMLInputElement).value);
 
-  let out;
+  let out: string;
   const type = data.type;
   if (type === 'character') {
-    out = character.generate(passLength, character.alphabets[data.alphabet], data.exhaustive !== 'false');
+    out = character.generate(passLength, (<any>character.alphabets)[data.alphabet], data.exhaustive !== 'false');
   } else if (type === 'phrase') {
     out = phrase.generate(passLength, data.specials === 'true');
   }
@@ -77,7 +77,7 @@ function typeSelected(e: Event) {
   desc.style.display = 'block';
 
   // show length picker
-  const lengths = data.length.split(',').map(x => parseInt(x));
+  const lengths = data.length.split(',').map((x: string) => parseInt(x));
   renderLengthOptions(lengths);
   document.getElementById('length-picker').style.visibility = 'visible';
 

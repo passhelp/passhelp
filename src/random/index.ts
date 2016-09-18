@@ -7,7 +7,7 @@ export function randomNumbers(count: number, bound: number): number[] {
     throw new Error('cannot safely generate numbers above 16-bits');
   }
 
-  const nums = [];
+  const nums: number[] = [];
 
   // keep asking for random values until we have as many as needed
   while (nums.length < count) {

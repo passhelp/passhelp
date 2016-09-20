@@ -20,14 +20,9 @@ for (let i = 0; i < typeOptions.length; i++) {
 }
 
 const lengthField = document.getElementById('length') as HTMLInputElement;
-const lengthSlider = document.getElementById('length-range') as HTMLInputElement;
 lengthField.addEventListener('change', e => {
   setLength(parseInt(lengthField.value));
 });
-lengthSlider.addEventListener('input', e => {
-  setLength(parseInt(lengthSlider.value));
-});
-
 
 /**
  * Read in form values, generate a password, and display it.
@@ -80,6 +75,8 @@ function typeSelected(e: Event) {
   const lengths = data.length.split(',').map((x: string) => parseInt(x));
   renderLengthOptions(lengths);
   document.getElementById('length-picker').style.visibility = 'visible';
+  lengthField.focus();
+  lengthField.select();
 
   // eagerly generate a password
   generate();
@@ -103,11 +100,6 @@ function renderLengthOptions(lengths: Array<number>) {
     container.appendChild(btn);
   }
 
-  // set min/max ranges on slider
-  const slider = document.getElementById('length-range') as HTMLInputElement;
-  slider.min = lengths[0].toString();
-  slider.max = lengths[lengths.length - 1].toString();
-
   // initialize length to something sane (second length option is "good enough")
   setLength(lengths[1]);
 }
@@ -116,9 +108,9 @@ function renderLengthOptions(lengths: Array<number>) {
  * Change the generated password length via event (hence string length).
  */
 function setLength(length: number) {
+  // TODO: this is a bit redundant; move length to url hash
   // don't we just love the DOM
   const lengthStr = length.toString();
   lengthField.value = lengthStr;
-  lengthSlider.value = lengthStr;
   generate();
 }

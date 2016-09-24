@@ -74,7 +74,7 @@ To load quickly, and so that you can save the single HTML file to your computer 
 
 ### How were the words selected?
 
-The words were sourced from the excellent [12dicts](http://wordlist.aspell.net/12dicts/) package's `3esl` list. These were filtered through a [small script](tools/wordprune.js) to restrict words to 5-8 characters and to remove some [potentially sensitive language](https://www.cs.cmu.edu/~biglou/resources/bad-words.txt).
+The words were sourced from the excellent [12dicts](http://wordlist.aspell.net/12dicts/) package's `3esl` list. These were filtered through a [small script](tools/wordprune.js) to restrict words to 4-8 characters and to remove some [potentially sensitive language](https://www.cs.cmu.edu/~biglou/resources/bad-words.txt).
 
 In the end you have about 11.5k simple words, which is plenty for a passphrase.
 

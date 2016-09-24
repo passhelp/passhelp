@@ -4,5 +4,8 @@
   "description": "Example usage of passhelp",
   "main": "index.js",
   "author": "Jacob Peddicord <jacob@peddicord.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "passhelp": "^0.1.2"
+  }
 }

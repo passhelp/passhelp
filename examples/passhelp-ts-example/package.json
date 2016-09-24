@@ -4,5 +4,11 @@
   "description": "Example TypeScript usage of passhelp",
   "main": "index.js",
   "author": "Jacob Peddicord <jacob@peddicord.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "passhelp": "^0.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3"
+  }
 }

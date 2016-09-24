@@ -41,7 +41,7 @@ function generate() {
   let out: string;
   const type = data.type;
   if (type === 'character') {
-    out = character.generate(passLength, (<any>character.alphabets)[data.alphabet], data.exhaustive !== 'false');
+    out = character.generate(passLength, (<any>character.alphabets)[data.alphabet], data.exhaustive === 'true');
   } else if (type === 'phrase') {
     out = phrase.generate(passLength, data.specials === 'true');
   }

@@ -44,7 +44,7 @@ export const alphabets = {
   hex: new Alphabet([NUMBERS + 'abcdef']),
 };
 
-export function generate(length: number, alphabet: Alphabet, exhaustive: boolean = true): string {
+export function generate(length: number, alphabet: Alphabet, exhaustive: boolean = false): string {
   const chars = alphabet.characters;
   const used = alphabet.sets.map(() => false);
 

@@ -9,3 +9,4 @@ web/**/*.js
 web/**/*.map
 !webpack.config.js
 *.tgz
+npm-debug.log

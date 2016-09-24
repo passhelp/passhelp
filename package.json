@@ -1,15 +1,20 @@
 {
   "name": "passhelp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Nonsense-free password generation routines",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "scripts": {
-    "build-web": "cd web && NODE_ENV=production webpack",
-    "test": "tsc && jasmine 'lib/**/*.spec.js'"
-  },
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/passhelp/passhelp.git"
+  },
+  "scripts": {
+    "build-web": "cd web && NODE_ENV=production webpack",
+    "prepublish": "npm test",
+    "test": "tsc && jasmine 'lib/**/*.spec.js'"
+  },
   "devDependencies": {
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",

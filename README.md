@@ -1,7 +1,5 @@
 # the little password helper #
 
-[**Launch the generator**](https://passhelp.github.io/generator/)
-
 passhelp, or "the little password helper", is a tool and library to help you
 generate secure and sane passwords.
 

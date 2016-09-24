@@ -14,23 +14,25 @@ generate secure and sane passwords.
 
 passhelp ships pure JavaScript and TypeScript definitions. Its API is small:
 
-    const passhelp = require('passhelp');
+```javascript
+const passhelp = require('passhelp');
 
-    // generate a 3 word passphrase
-    passhelp.phrase(3); // "allergy site poise"
+// generate a 3 word passphrase
+passhelp.phrase(3); // "allergy site poise"
 
-    // include uppercase, special, and digit characters
-    passhelp.phrase(3, true); // "Stylish:question8splinter"
+// include uppercase, special, and digit characters
+passhelp.phrase(3, true); // "Stylish:question8splinter"
 
-    // traditional 12 character all-random passphrase
-    passhelp.character(12, passhelp.alphabets.full); // "tDnx1>^Q>:Z="
+// traditional 12 character all-random passphrase
+passhelp.character(12, passhelp.alphabets.full); // "tDnx1>^Q>:Z="
 
-    // 12 characters, but omit look-alikes
-    passhelp.character(12, passhelp.alphabets.full_friendly); // "2hUk#y?x\r~&"
+// 12 characters, but omit look-alikes
+passhelp.character(12, passhelp.alphabets.full_friendly); // "2hUk#y?x\r~&"
 
-    // 8 character alphanumeric for those silly banks. ensure that
-    // it has 1 digit, 1 upper-case and 1 lower-case character
-    passhelp.character(8, passhelp.alphabets.alphanumeric, true); // "A2nJEH4o"
+// 8 character alphanumeric for those silly banks. ensure that
+// it has 1 digit, 1 upper-case and 1 lower-case character
+passhelp.character(8, passhelp.alphabets.alphanumeric, true); // "A2nJEH4o"
+```
 
 All generators return strings. Available alphabets for the character generator are:
 

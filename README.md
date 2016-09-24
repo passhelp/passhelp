@@ -4,11 +4,45 @@ passhelp, or "the little password helper", is a tool and library to help you
 generate secure and sane passwords.
 
 ## Tenets ##
-* **Secure by default** - passhelp uses a secure RNG provided by your browser (WebCrypto).
+* **Secure by default** - passhelp uses a secure RNG provided by your browser (WebCrypto) or NodeJS (crypto module).
 * **Human-friendly** - passhelp suggests password schemes that are easier to remember and read.
 * **Fast** - don't bother tweaking tons of options; get a usable password with minimal clicks.
 * **No-nonsense** - your password is generated on the client side, not on someone else's server.
 * **Simple & auditable** - the source is readable, avoids cleverness, and is tested.
+
+## Usage ##
+
+passhelp ships pure JavaScript and TypeScript definitions. Its API is small:
+
+    const passhelp = require('passhelp');
+
+    // generate a 3 word passphrase
+    passhelp.phrase(3); // "allergy site poise"
+
+    // include uppercase, special, and digit characters
+    passhelp.phrase(3, true); // "Stylish:question8splinter"
+
+    // traditional 12 character all-random passphrase
+    passhelp.character(12, passhelp.alphabets.full); // "tDnx1>^Q>:Z="
+
+    // 12 characters, but omit look-alikes
+    passhelp.character(12, passhelp.alphabets.full_friendly); // "2hUk#y?x\r~&"
+
+    // 8 character alphanumeric for those silly banks. ensure that
+    // it has 1 digit, 1 upper-case and 1 lower-case character
+    passhelp.character(8, passhelp.alphabets.alphanumeric, true); // "A2nJEH4o"
+
+All generators return strings. Available alphabets for the character generator are:
+
+* `full`: Upper/lower-case, numbers, and symbols
+* `full_friendly`: Like `full`, but excluding look-alike characters (`Il1O0\|`)
+* `alphanumeric`: Upper/lower-case characters and numbers.
+* `alphanumeric_friendly`: Like `alphanumeric`, but excluding look-alike characters.
+* `numeric`: A string of digits.
+* `nonalpha`: Numbers and symbols.
+* `hex`: Digits and the characters `abcdef` (lowercase).
+
+The third option to the character generator determines whether the password is "exhaustive". If **true** (default **false**), it will ensure that the generated password has at least 1 character of every type in the given alphabet. This is to ensure that generated passwords will fulfill password requirements imposed by some organizations and websites.
 
 ## FAQ ##
 ### Why another password generator?

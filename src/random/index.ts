@@ -28,9 +28,11 @@ export function randomNumbers(count: number, bound: number): number[] {
 
       // we're done once we have what we need
       if (nums.length === count) {
-        return nums;
+        break;
       }
     }
   }
+
+  return nums;
 }
 

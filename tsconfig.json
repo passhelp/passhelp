@@ -9,7 +9,8 @@
     "rootDir": "src",
     "declaration": true,
     "sourceMap": false,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules",

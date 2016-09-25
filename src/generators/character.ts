@@ -8,9 +8,9 @@ const LOOKALIKES = /[Il1O0\|]/g;
 
 export class Alphabet {
   private _sets: string[];
-  private _exclude: RegExp;
+  private _exclude: RegExp | null;
 
-  constructor(sets: string[], exclude: RegExp = null) {
+  constructor(sets: string[], exclude: RegExp | null = null) {
     this._sets = sets;
     this._exclude = exclude;
   }

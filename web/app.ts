@@ -3,7 +3,6 @@
  * Copyright 2016 Jacob Peddicord
  */
 
-import './style.css';
 import * as character from '../src/generators/character';
 import * as phrase from '../src/generators/phrase';
 

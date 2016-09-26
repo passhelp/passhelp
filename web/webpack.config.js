@@ -26,14 +26,14 @@ if (prod) {
 
 module.exports = {
   entry: {
-    app: './app.ts',
+    app: ['./app.ts', './style.scss'],
   },
   output: {
     path: './build',
     filename: 'app.bundle.js',
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.txt', '.css'],
+    extensions: ['', '.ts', '.scss'],
   },
   module: {
     loaders: [
@@ -42,8 +42,8 @@ module.exports = {
         loader: 'ts-loader',
       },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css!sass'),
       },
     ],
   },

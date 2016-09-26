@@ -1,5 +1,21 @@
+$highlight: #45a5f5;
+$selected: darken($highlight, 10%);
+$fg-active: #fff;
+
 *:focus {
-  outline: none;
+  outline: 2px solid $selected;
+}
+
+::selection {
+  background-color: $selected;
+  color: $fg-active;
+}
+
+*:not(input) {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 body {
@@ -7,15 +23,21 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+}
+
+button {
+  &:hover {
+    background-color: $highlight;
+  }
+
+  &:active {
+    background-color: $selected;
+  }
 }
 
 #container {
   max-width: 700px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 #settings {
@@ -29,13 +51,28 @@ body {
     flex-shrink: 0;
 
     label {
-      display: block;
-      padding: 0.5em;
-      font-size: 1.2em;
-      cursor: pointer;
+      span {
+        display: block;
+        padding: 0.5em;
+        font-size: 1.2em;
+        cursor: pointer;
+        text-decoration: underline;
+      }
 
-      &:hover {
-        background-color: #ddd;
+      &:hover span {
+        background-color: $highlight;
+        color: $fg-active;
+        text-decoration: none;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      input[type="radio"]:checked + span {
+        background-color: $selected;
+        color: $fg-active;
+        text-decoration: none;
       }
     }
   }
@@ -91,6 +128,9 @@ body {
   display: flex;
   margin: 0.8em 0.5em;
   flex-direction: row;
+
+  // initially hidden
+  visibility: hidden;
 
   #output {
     flex-grow: 1;

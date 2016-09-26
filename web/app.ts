@@ -47,6 +47,9 @@ function generate() {
 
   const outputField = document.getElementById('output') as HTMLInputElement;
   outputField.value = out;
+
+  const outputArea = document.getElementById('output-area') as HTMLElement;
+  outputArea.style.visibility = 'visible';
 }
 
 function copyOutput(e: Event) {

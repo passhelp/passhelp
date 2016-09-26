@@ -19,8 +19,11 @@ for (let i = 0; i < typeOptions.length; i++) {
 }
 
 const lengthField = document.getElementById('length') as HTMLInputElement;
-lengthField.addEventListener('change', e => {
+lengthField.addEventListener('input', e => {
   setLength(parseInt(lengthField.value));
+});
+lengthField.addEventListener('focus', e => {
+  lengthField.select();
 });
 
 /**
@@ -78,8 +81,6 @@ function typeSelected(e: Event) {
   renderLengthOptions(lengths);
   const lengthPicker = document.getElementById('length-picker') as HTMLElement;
   lengthPicker.style.visibility = 'visible';
-  lengthField.focus();
-  lengthField.select();
 
   // eagerly generate a password
   generate();

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>the little password helper</title>
   <style type="text/css"><%= compilation.assets['style.css'].source() %></style>
 </head>
@@ -12,6 +13,9 @@
     <div id="settings">
 
       <div id="types">
+        <div>
+          Select a password type:
+        </div>
         <label>
           <input type="radio" name="type-radio" class="generator" id="phrase" data-type="phrase" data-length="3,4,5,6">
           <span>phrase</span>
@@ -67,7 +71,7 @@
         </div>
 
         <div id="length-picker">
-          Password length:<br/>
+          <div>Password length:</div>
           <input type="number" id="length" />
           <span id="length-presets"></span>
         </div>

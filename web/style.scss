@@ -1,6 +1,18 @@
 $highlight: #45a5f5;
 $selected: darken($highlight, 10%);
 $fg-active: #fff;
+$inactive: #ccc;
+
+@mixin desktop {
+  @media (min-width: 601px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
 
 *:focus {
   outline: 2px solid $selected;
@@ -26,29 +38,60 @@ body {
 }
 
 button {
+  background-color: $inactive;
+  border: 0;
+  cursor: pointer;
+
   &:hover {
     background-color: $highlight;
+    color: $fg-active;
   }
 
   &:active {
     background-color: $selected;
+    color: $fg-active;
   }
 }
 
 #container {
-  max-width: 700px;
-  margin: 50px auto;
+  @include desktop {
+    max-width: 700px;
+    margin: 50px auto;
+  }
+  @include mobile {
+    margin: 0;
+  }
 }
 
 #settings {
-  width: 100%;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 10px;
+    flex-direction: column;
+  }
 
   // password presets
   #types {
     flex-basis: 250px;
     flex-shrink: 0;
+
+    @include desktop {
+      > div {
+        display: none;
+      }
+    }
+    @include mobile {
+      margin-bottom: 15px;
+
+      > div {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
 
     label {
       span {
@@ -66,7 +109,9 @@ button {
       }
 
       input[type="radio"] {
-        display: none;
+        //display: none;
+        position: absolute;
+        left: -9999px;
       }
 
       input[type="radio"]:checked + span {
@@ -80,7 +125,7 @@ button {
   // right-side pane with description and length picker
   #details {
     display: flex;
-    padding-left: 0.5em;
+    padding: 0 0.5em;
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
@@ -104,6 +149,10 @@ button {
       padding: 0.5em;
       visibility: hidden;
 
+      > div {
+        margin-bottom: 4px;
+      }
+
       #length {
         width: 2em;
         padding: 0.4em 0.6em;
@@ -113,21 +162,24 @@ button {
       }
 
       #length-presets > button {
-        background-color: #ccc;
-        border: 0;
         padding: 0.5em 0.8em;
         margin-right: 0.3em;
         font-size: 1.2em;
-        cursor: pointer;
       }
     }
   }
 }
 
 #output-area {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
-  margin: 0.8em 0.5em;
   flex-direction: row;
+  padding: 0.8em 0.5em;
+
+  @include mobile {
+    flex-direction: column;
+  }
 
   // initially hidden
   visibility: hidden;
@@ -138,15 +190,25 @@ button {
     border: 3px solid black;
     padding: 0.3em;
     text-align: center;
+
+    @include mobile {
+      font-size: 1.2em;
+      padding: 0.8em 0.2em;
+    }
   }
 
   #regenerate {
     flex-grow: 0;
-    margin-left: 0.5em;
-    border: none;
     padding: 0 0.6em;
     font-size: 1.4em;
     font-weight: bold;
-    cursor: pointer;
+
+    @include desktop {
+      margin-left: 5px;
+    }
+    @include mobile {
+      margin: 12px 0;
+      padding: 0.4em 0;
+    }
   }
 }

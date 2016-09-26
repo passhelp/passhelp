@@ -132,6 +132,7 @@ button {
 
     #description {
       flex-grow: 1;
+      flex-basis: 200px;
       font-size: 1.1em;
       text-align: justify;
 
@@ -146,7 +147,6 @@ button {
     }
 
     #length-picker {
-      padding: 0.5em;
       visibility: hidden;
 
       > div {
@@ -161,10 +161,14 @@ button {
         border: 1px solid black;
       }
 
-      #length-presets > button {
-        padding: 0.5em 0.8em;
-        margin-right: 0.3em;
-        font-size: 1.2em;
+      #length-presets {
+        white-space: nowrap;
+
+        button {
+          padding: 0.5em 0.8em;
+          margin-right: 0.3em;
+          font-size: 1.2em;
+        }
       }
     }
   }

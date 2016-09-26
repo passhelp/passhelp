@@ -9,7 +9,7 @@ import * as phrase from '../src/generators/phrase';
 
 const outputField = document.getElementById('output') as HTMLInputElement;
 outputField.addEventListener('focus', copyOutput);
-const regenerateButton = document.getElementById('regenerate');
+const regenerateButton = document.getElementById('regenerate') as HTMLButtonElement;
 regenerateButton.addEventListener('click', generate);
 
 const typeOptions = document.querySelectorAll('.generator');
@@ -38,7 +38,7 @@ function generate() {
   // read the desired length
   const passLength = parseInt((document.getElementById('length') as HTMLInputElement).value);
 
-  let out: string;
+  let out = '';
   const type = data.type;
   if (type === 'character') {
     out = character.generate(passLength, (<any>character.alphabets)[data.alphabet], data.exhaustive === 'true');
@@ -68,13 +68,14 @@ function typeSelected(e: Event) {
     const txt = descs.item(i) as HTMLElement;
     txt.style.display = 'none';
   }
-  const desc = document.getElementById(`desc_${radio.id}`);
+  const desc = document.getElementById(`desc_${radio.id}`) as HTMLElement;
   desc.style.display = 'block';
 
   // show length picker
   const lengths = data.length.split(',').map((x: string) => parseInt(x));
   renderLengthOptions(lengths);
-  document.getElementById('length-picker').style.visibility = 'visible';
+  const lengthPicker = document.getElementById('length-picker') as HTMLElement;
+  lengthPicker.style.visibility = 'visible';
   lengthField.focus();
   lengthField.select();
 
@@ -87,7 +88,7 @@ function typeSelected(e: Event) {
  */
 function renderLengthOptions(lengths: Array<number>) {
   // make quick-select buttons
-  const container = document.getElementById('length-presets');
+  const container = document.getElementById('length-presets') as HTMLElement;
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }

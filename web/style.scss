@@ -51,10 +51,15 @@ body {
     #description {
       flex-grow: 1;
       font-size: 1.1em;
+      text-align: justify;
 
       // hide all descriptions initially
       .type {
         display: none;
+
+        small {
+          opacity: 0.7;
+        }
       }
     }
 

@@ -40,7 +40,7 @@ passhelp.character(8, passhelp.alphabets.alphanumeric, true); // "A2nJEH4o"
 All generators return strings. Available alphabets for the character generator are:
 
 * `full`: Upper/lower-case, numbers, and symbols
-* `full_friendly`: Like `full`, but excluding look-alike characters (`Il1O0\|`)
+* `full_friendly`: Like `full`, but excluding look-alike characters (`Il1O0|`)
 * `alphanumeric`: Upper/lower-case characters and numbers.
 * `alphanumeric_friendly`: Like `alphanumeric`, but excluding look-alike characters.
 * `numeric`: A string of digits.

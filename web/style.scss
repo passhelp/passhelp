@@ -1,3 +1,4 @@
+$background: #fff;
 $highlight: #45a5f5;
 $selected: darken($highlight, 10%);
 $fg-active: #fff;
@@ -214,5 +215,42 @@ button {
       margin: 12px 0;
       padding: 0.4em 0;
     }
+  }
+}
+
+#footer {
+  background-color: #eee;
+  border-top: 1px solid #aaa;
+
+  @include desktop {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 3px;
+    font-size: 12px;
+    text-align: right;
+  }
+  @include mobile {
+    font-size: 15px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: #555;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .icon {
+    display: inline-block;
+    background-image: url('./icon.png');
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
   }
 }

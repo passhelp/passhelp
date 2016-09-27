@@ -43,8 +43,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css!sass'),
+        loader: ExtractTextPlugin.extract('css!sass'),
       },
+      {
+        test: /\.png$/,
+        loader: 'url-loader?limit=10000'
+      }
     ],
   },
   plugins: plugins,

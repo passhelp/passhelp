@@ -1,4 +1,5 @@
 .vscode/
+dist/
 examples/
 src/
 tools/

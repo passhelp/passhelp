@@ -1,3 +1,6 @@
+// passhelp - MIT License - https://passhelp.github.io
+// Copyright 2016 Jacob Peddicord
+
 export type UintSizedArray = Uint8Array | Uint16Array | Uint32Array;
 export type RNGFunc = <T extends UintSizedArray>(
   arrayType: {new(length: number): T}, count: number

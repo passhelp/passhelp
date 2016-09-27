@@ -1,3 +1,6 @@
+// passhelp - MIT License - https://passhelp.github.io
+// Copyright 2016 Jacob Peddicord
+
 import { getRandomArray } from './source';
 
 const UPPER = Math.pow(2, 16);

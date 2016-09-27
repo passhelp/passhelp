@@ -1,3 +1,6 @@
+// passhelp - MIT License - https://passhelp.github.io
+// Copyright 2016 Jacob Peddicord
+
 if (process.argv.length !== 4) {
   console.log('usage: wordprune words.txt exclusions.txt');
   process.exit(1);

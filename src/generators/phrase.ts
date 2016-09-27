@@ -1,3 +1,6 @@
+// passhelp - MIT License - https://passhelp.github.io
+// Copyright 2016 Jacob Peddicord
+
 import * as random from '../random';
 import * as character from './character';
 import rawWords from './words';

@@ -1,3 +1,6 @@
+// passhelp - MIT License - https://passhelp.github.io
+// Copyright 2016 Jacob Peddicord
+
 import * as phrase from './phrase';
 
 describe('phrase generator', () => {

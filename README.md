@@ -46,7 +46,6 @@ All generators return strings. Available alphabets for the character generator a
 * `alphanumeric`: Upper/lower-case characters and numbers.
 * `alphanumeric_friendly`: Like `alphanumeric`, but excluding look-alike characters.
 * `numeric`: A string of digits.
-* `nonalpha`: Numbers and symbols.
 * `hex`: Digits and the characters `abcdef` (lowercase).
 
 The third option to the character generator determines whether the password is "exhaustive". If **true** (default **false**), it will ensure that the generated password has at least 1 character of every type in the given alphabet. This is to ensure that generated passwords will fulfill password requirements imposed by some organizations and websites.

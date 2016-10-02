@@ -5,6 +5,8 @@ import * as random from '../random';
 import * as character from './character';
 import rawWords from './words';
 
+const symFriendly = new character.Alphabet([character.NUMBERS, character.SYMBOLS], character.LOOKALIKES);
+
 let _words: string[] = [];
 function getWords(): string[] {
   if (_words.length === 0) {
@@ -25,7 +27,7 @@ export function generate(numWords: number, specials: boolean = false): string {
 
   let separators = '';
   if (specials) {
-    separators = character.generate(numWords - 1, character.alphabets.nonalpha, true);
+    separators = character.generate(numWords - 1, symFriendly, true);
   } else {
     separators = ' '.repeat(numWords - 1);
   }

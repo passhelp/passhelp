@@ -16,4 +16,11 @@ describe('phrase generator', () => {
     expect(pass).toMatch(/(\W|\d)/);
   });
 
+  it('does not include look-alike separators', () => {
+    for (let i = 0; i < 100; i++) {
+      const pass = phrase.generate(10, true);
+      expect(/[\|01]/.test(pass)).toBe(false);
+    }
+  });
+
 });

@@ -54,13 +54,6 @@ describe('character generator', () => {
       }
     });
 
-    it('nonalpha has no letters', () => {
-      for (let i = 0; i < 100; i++) {
-        const full = character.generate(10, character.alphabets.nonalpha);
-        expect(full).toMatch(/^[^A-Za-z]+$/);
-      }
-    });
-
     it('hex is only hex', () => {
       for (let i = 0; i < 100; i++) {
         const full = character.generate(10, character.alphabets.hex);

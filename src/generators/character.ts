@@ -3,11 +3,11 @@
 
 import * as random from '../random';
 
-const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
-const ALPHA_UPPER = ALPHA.toUpperCase();
-const NUMBERS = '1234567890';
-const SYMBOLS = '!@#$%^&*()`~-_=+[]{};:\'"<>,./?\\|';
-const LOOKALIKES = /[Il1O0\|]/g;
+export const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
+export const ALPHA_UPPER = ALPHA.toUpperCase();
+export const NUMBERS = '1234567890';
+export const SYMBOLS = '!@#$%^&*()`~-_=+[]{};:\'"<>,./?\\|';
+export const LOOKALIKES = /[Il1O0\|]/g;
 
 export class Alphabet {
   private _sets: string[];
@@ -43,7 +43,6 @@ export const alphabets = {
   alphanumeric: new Alphabet([ALPHA, ALPHA_UPPER, NUMBERS]),
   alphanumeric_friendly: new Alphabet([ALPHA, ALPHA_UPPER, NUMBERS], LOOKALIKES),
   numeric: new Alphabet([NUMBERS]),
-  nonalpha: new Alphabet([NUMBERS, SYMBOLS]),
   hex: new Alphabet([NUMBERS + 'abcdef']),
 };
 

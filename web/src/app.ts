@@ -14,6 +14,7 @@ const regenerateButton = document.getElementById('regenerate') as HTMLButtonElem
 const typeOptions = document.querySelectorAll('.generator');
 const lengthField = document.getElementById('length') as HTMLInputElement;
 const lengthPicker = document.getElementById('length-picker') as HTMLElement;
+const copiedMessage = document.getElementById('copied-message') as HTMLElement;
 
 state.load(); // calls stateChanged
 registerEvents();
@@ -23,7 +24,15 @@ registerEvents();
  * Link up events for user-initiated actions.
  */
 function registerEvents() {
-  outputField.addEventListener('focus', copyOutput);
+  outputField.addEventListener('focus', () => {
+    outputField.select();
+    document.execCommand('copy');
+    copiedMessage.style.visibility = 'visible';
+  });
+  outputField.addEventListener('blur', () => {
+    copiedMessage.style.visibility = 'hidden';
+  })
+
   regenerateButton.addEventListener('click', generate);
 
   for (let i = 0; i < typeOptions.length; i++) {
@@ -89,14 +98,6 @@ function generate() {
   const outputArea = document.getElementById('output-area') as HTMLElement;
   outputArea.style.visibility = 'visible';
   outputField.value = out;
-}
-
-/**
- * Select all text in the element and copy to clipboard.
- */
-function copyOutput(e: Event) {
-  outputField.select();
-  document.execCommand('copy');
 }
 
 /**

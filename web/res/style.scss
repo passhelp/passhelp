@@ -3,7 +3,7 @@ $highlight: #45a5f5;
 $selected: darken($highlight, 10%);
 $fg-active: #fff;
 $inactive: #ccc;
-$output-border: #000;
+$border: #000;
 
 @mixin desktop {
   @media (min-width: 601px) {
@@ -160,7 +160,7 @@ button {
         padding: 0.4em 0.6em;
         margin-right: 0.3em;
         font-size: 1.2em;
-        border: 1px solid $output-border;
+        border: 1px solid $border;
       }
 
       #length-presets {
@@ -179,42 +179,58 @@ button {
 #output-area {
   width: 100%;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   padding: 0.8em 0.5em;
-
-  @include mobile {
-    flex-direction: column;
-  }
 
   // initially hidden
   visibility: hidden;
 
-  #output {
-    flex-grow: 1;
-    font-size: 1.5em;
-    border: 3px solid black;
-    padding: 0.3em;
-    text-align: center;
+  #copied-message {
+    margin-left: 10px;
+    padding: 2px 10px;
+    background: $border;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: $fg-active;
 
-    @include mobile {
-      font-size: 1.2em;
-      padding: 0.8em 0.2em;
-    }
+    // also initially hidden
+    visibility: hidden;
   }
 
-  #regenerate {
-    flex-grow: 0;
-    padding: 0 0.6em;
-    font-size: 1.4em;
-    font-weight: bold;
+  > div {
+    display: flex;
+    flex-direction: row;
 
-    @include desktop {
-      margin-left: 5px;
-    }
     @include mobile {
-      margin: 12px 0;
-      padding: 0.4em 0;
+      flex-direction: column;
+    }
+
+    #output {
+      flex-grow: 1;
+      font-size: 1.5em;
+      border: 3px solid $border;
+      padding: 0.3em;
+      text-align: center;
+
+      @include mobile {
+        font-size: 1.2em;
+        padding: 0.8em 0.2em;
+      }
+    }
+
+    #regenerate {
+      flex-grow: 0;
+      padding: 0 0.6em;
+      font-size: 1.4em;
+      font-weight: bold;
+
+      @include desktop {
+        margin-left: 5px;
+      }
+      @include mobile {
+        margin: 12px 0;
+        padding: 0.4em 0;
+      }
     }
   }
 }

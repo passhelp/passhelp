@@ -2,8 +2,8 @@
 
 # the little password helper #
 
-[![npm](https://img.shields.io/npm/v/passhelp.svg?maxAge=2592000)](https://www.npmjs.com/package/passhelp)
-[![Travis](https://img.shields.io/travis/passhelp/passhelp.svg?maxAge=2592000)](https://travis-ci.org/passhelp/passhelp)
+[![npm](https://img.shields.io/npm/v/passhelp.svg?maxAge=7200)](https://www.npmjs.com/package/passhelp)
+[![Travis](https://img.shields.io/travis/passhelp/passhelp.svg?maxAge=7200)](https://travis-ci.org/passhelp/passhelp)
 
 passhelp, or "the little password helper", is a tool and library to help you
 generate secure and sane passwords.

@@ -3,6 +3,7 @@ $highlight: #45a5f5;
 $selected: darken($highlight, 10%);
 $fg-active: #fff;
 $inactive: #ccc;
+$output-border: #000;
 
 @mixin desktop {
   @media (min-width: 601px) {
@@ -32,7 +33,7 @@ $inactive: #ccc;
 }
 
 body {
-  background-color: white;
+  background-color: $background;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -56,11 +57,11 @@ button {
 
 #container {
   @include desktop {
+    margin: 50px auto 30px auto;
     max-width: 700px;
-    margin: 50px auto;
   }
   @include mobile {
-    margin: 0;
+    margin: 0 auto;
   }
 }
 
@@ -159,7 +160,7 @@ button {
         padding: 0.4em 0.6em;
         margin-right: 0.3em;
         font-size: 1.2em;
-        border: 1px solid black;
+        border: 1px solid $output-border;
       }
 
       #length-presets {
@@ -219,23 +220,9 @@ button {
 }
 
 #footer {
-  background-color: #eee;
-  border-top: 1px solid #aaa;
-
-  @include desktop {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0 3px;
-    font-size: 12px;
-    text-align: right;
-  }
-  @include mobile {
-    font-size: 15px;
-    padding: 8px;
-    text-align: center;
-  }
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
 
   a {
     text-decoration: none;

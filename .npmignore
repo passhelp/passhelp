@@ -12,3 +12,5 @@ lib/**/*.spec.js
 .gitattributes
 .npmignore
 *.tgz
+.travis.yml
+webpack.*

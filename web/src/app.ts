@@ -130,11 +130,13 @@ function showType(radio: HTMLInputElement): number[] {
  * Given a list of numbers, update the length picker appropriately.
  */
 function renderLengthOptions(lengths: Array<number>) {
-  // make quick-select buttons
+  // remove existing buttons
   const container = document.getElementById('length-presets') as HTMLElement;
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+
+  // make quick-select buttons
   for (let l of lengths) {
     const btn = document.createElement('button');
     btn.textContent = l.toString();
@@ -144,4 +146,7 @@ function renderLengthOptions(lengths: Array<number>) {
     });
     container.appendChild(btn);
   }
+
+  // set appropriate minimum for range field
+  lengthField.min = lengths[0].toString();
 }

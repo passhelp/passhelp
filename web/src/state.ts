@@ -14,7 +14,7 @@ export default class State {
 
   load() {
     const urlHash = document.location.hash;
-    if (!urlHash || !/^#\w{1,20}:\d{1,3}$/.test(urlHash)) {
+    if (!urlHash || !/^#\w{1,20}:\d{1,2}$/.test(urlHash)) {
       return;
     }
 

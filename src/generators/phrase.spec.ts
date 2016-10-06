@@ -23,4 +23,10 @@ describe('phrase generator', () => {
     }
   });
 
+  it('requires at least 3 words', () => {
+    expect(() => {
+      phrase.generate(2);
+    }).toThrowError(/minimum/);
+  });
+
 });

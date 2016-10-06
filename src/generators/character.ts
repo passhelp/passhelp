@@ -47,6 +47,10 @@ export const alphabets = {
 };
 
 export function generate(length: number, alphabet: Alphabet, exhaustive: boolean = false): string {
+  if (length < 1) {
+    throw new Error('invalid length');
+  }
+
   const chars = alphabet.characters;
   const used = alphabet.sets.map(() => false);
 

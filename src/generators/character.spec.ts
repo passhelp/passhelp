@@ -10,6 +10,16 @@ describe('character generator', () => {
     expect(pass.length).toBe(30);
   });
 
+  it('requires at least length 1', () => {
+    expect(() => {
+      character.generate(0, character.alphabets.full);
+    }).toThrowError(/length/);
+
+    expect(() => {
+      character.generate(1, character.alphabets.full_friendly);
+    }).not.toThrow();
+  });
+
   it('always includes all sets when exhaustive mode is used', () => {
     for (let i = 0; i < 100; i++) {
       const pass = character.generate(10, character.alphabets.alphanumeric, true);

@@ -2,7 +2,8 @@
 node_modules/
 typings/
 build/
-dist/
+dist/*
+!dist/passhelp.min.js
 lib/
 src/**/*.js
 src/**/*.map

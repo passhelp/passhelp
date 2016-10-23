@@ -1,0 +1,3 @@
+[submodule "tools/wordlist"]
+	path = tools/wordlist
+	url = https://github.com/passhelp/wordlist

@@ -12,9 +12,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true
   },
-  "exclude": [
-    "node_modules",
-    "examples",
-    "web"
+  "include": [
+    "src"
   ]
 }

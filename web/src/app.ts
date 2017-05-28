@@ -31,7 +31,7 @@ function registerEvents() {
   });
   outputField.addEventListener('blur', () => {
     copiedMessage.style.visibility = 'hidden';
-  })
+  });
 
   regenerateButton.addEventListener('click', generate);
 
@@ -91,7 +91,7 @@ function generate() {
   if (type === 'character') {
     out = character.generate(state.length, (<any>character.alphabets)[data.alphabet], data.exhaustive === 'true');
   } else if (type === 'phrase') {
-    out = phrase.generate(state.length, data.specials === 'true');
+    out = phrase.generate(state.length, false, '-');
   }
 
   // show generated password
@@ -107,7 +107,7 @@ function generate() {
  */
 function showType(radio: HTMLInputElement): number[] {
   const data = radio.dataset as any;
-  const passtype = radio.id
+  const passtype = radio.id;
 
   // show description
   const descs = document.querySelectorAll('#description > .type');

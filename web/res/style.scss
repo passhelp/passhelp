@@ -78,10 +78,11 @@ button {
 
   // password presets
   #types {
-    flex-basis: 250px;
     flex-shrink: 0;
 
     @include desktop {
+      flex-basis: 150px;
+
       > div {
         display: none;
       }
@@ -134,7 +135,7 @@ button {
 
     #description {
       flex-grow: 1;
-      flex-basis: 200px;
+      flex-basis: 130px;
       font-size: 1.1em;
       text-align: justify;
 

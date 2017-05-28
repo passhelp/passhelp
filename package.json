@@ -1,6 +1,6 @@
 {
   "name": "passhelp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Nonsense-free password generation routines",
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",

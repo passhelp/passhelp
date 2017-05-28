@@ -28,6 +28,9 @@ passhelp.phrase(3); // "allergy site poise"
 // include uppercase, special, and digit characters
 passhelp.phrase(3, true); // "Stylish:question8splinter"
 
+// use a custom separator character
+passhelp.phrase(3, false, '/'); // "slouch/proceeds/rapture"
+
 // traditional 12 character all-random passphrase
 passhelp.character(12, passhelp.alphabets.full); // "tDnx1>^Q>:Z="
 

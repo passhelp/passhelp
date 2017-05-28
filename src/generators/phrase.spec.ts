@@ -23,6 +23,11 @@ describe('phrase generator', () => {
     }
   });
 
+  it('uses the requested separator', () => {
+    const pass = phrase.generate(5, false, '-');
+    expect(pass).toMatch(/^(\w+\-)+\w+$/);
+  });
+
   it('requires at least 3 words', () => {
     expect(() => {
       phrase.generate(2);

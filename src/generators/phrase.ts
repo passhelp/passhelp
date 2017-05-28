@@ -15,7 +15,7 @@ function getWords(): string[] {
   return _words;
 }
 
-export function generate(numWords: number, specials: boolean = false): string {
+export function generate(numWords: number, specials: boolean = false, separator: string = ' '): string {
   // for sanity, require 3 words so that there are at least two separator characters.
   // this means we can guarantee at least 1 symbol and 1 number, if asked for
   if (numWords < 3) {
@@ -29,7 +29,7 @@ export function generate(numWords: number, specials: boolean = false): string {
   if (specials) {
     separators = character.generate(numWords - 1, symFriendly, true);
   } else {
-    separators = ' '.repeat(numWords - 1);
+    separators = separator.repeat(numWords - 1);
   }
 
   const nums = random.randomNumbers(numWords, words.length);

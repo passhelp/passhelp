@@ -6,6 +6,6 @@
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",
   "dependencies": {
-    "passhelp": "^1.0.0-beta.2"
+    "passhelp": "^1.1.1"
   }
 }

@@ -2,6 +2,7 @@
 .gitattributes
 .gitmodules
 .npmignore
+.tool-versions
 .vscode/
 *.tgz
 /*.json

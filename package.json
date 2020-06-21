@@ -1,6 +1,6 @@
 {
   "name": "passhelp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Nonsense-free password generation routines",
   "author": "Jacob Peddicord <jacob@peddicord.net>",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build-web": "cd web && NODE_ENV=production webpack",
-    "prepublish": "tsc",
+    "prepublish": "tsc && NODE_ENV=production webpack",
     "test": "tsc && jasmine 'lib/**/*.spec.js'"
   },
   "devDependencies": {

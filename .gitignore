@@ -1,9 +1,9 @@
-!dist/passhelp.min.js
-!webpack.config.js
+.tool-versions
 .vscode/
 *.tgz
 build/
 dist/
+!dist/passhelp.min.js
 lib/
 node_modules/
 npm-debug.log

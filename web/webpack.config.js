@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const prod = process.env.NODE_ENV === 'production';
@@ -9,48 +8,39 @@ const plugins = [
     // strip out node logic; ensures 'crypto' module doesn't get bundled
     'typeof require': JSON.stringify('undefined'),
   }),
-  new ExtractTextPlugin('style.css', {allChunks: true}),
-  new HtmlWebpackPlugin({
-    template: './res/template.ejs',
-    inject: false,
-    cache: false,
-    minify: {
-      collapseWhitespace: true,
-    },
-  }),
+  new HtmlWebpackPlugin({ inject: false }),
 ];
 
-if (prod) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}));
-}
-
 module.exports = {
+  mode: prod ? 'production' : 'development',
   entry: {
-    app: ['./src/app.ts', './res/style.scss'],
+    app: ['./src/app.ts', './src/style.scss'],
   },
   output: {
-    path: './build',
     filename: 'app.bundle.js',
   },
   resolve: {
-    extensions: ['', '.ts', '.scss'],
+    extensions: ['.ts', '.scss'],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
-        loader: 'ts-loader',
+        use: ['ts-loader'],
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass'),
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.png$/,
-        loader: 'url-loader?limit=10000'
+        use: [
+          {
+            loader: 'url-loader', options: { limit: 10000 }
+          }
+        ]
       }
     ],
   },
-  plugins: plugins,
-  devtool: prod ? undefined : 'cheap-module-eval-source-map',
+  plugins: plugins
 };

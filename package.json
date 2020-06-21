@@ -16,14 +16,14 @@
     "test": "tsc && jasmine 'lib/**/*.spec.js'"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.5.35",
+    "@types/jasmine": "~2.5.35",
     "@types/mockery": "^1.4.29",
     "@types/node": "^6.0.45",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
-    "jasmine": "^2.5.2",
+    "jasmine": "~2.5.2",
     "mockery": "^2.0.0",
     "node-sass": "^4.1.1",
     "sass-loader": "^4.0.2",
